@@ -6,6 +6,8 @@ import { CdComponent } from './cd/cd.component';
 import { HeaderComponent } from './header/header.component';
 import { ListeDeCdComponent } from './liste-de-cd/liste-de-cd.component';
 import { FooterComponent } from './footer/footer.component';
+import { AppRoutingModule } from './app-routing.module';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -13,10 +15,12 @@ import { FooterComponent } from './footer/footer.component';
     CdComponent,
     HeaderComponent,
     ListeDeCdComponent,
-    FooterComponent
+    FooterComponent,
+    HomeComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

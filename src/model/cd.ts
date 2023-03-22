@@ -8,8 +8,9 @@ export class Cd {
     cover: string;
     description: string;
     onsale?: boolean;
+    quantity: number;
 
-    constructor(id: number, title: string, artist: string, year: Date, genre: string, price: number, cover: string, description: string, onsale?: boolean) {
+    constructor(id: number, title: string, artist: string, year: Date, genre: string, price: number, cover: string, description: string, quantity: number, onsale?: boolean) {
         this.id = id;
         this.title = title;
         this.artist = artist;
@@ -19,6 +20,7 @@ export class Cd {
         this.cover = cover;
         this.description = description;
         this.onsale = onsale;
+        this.quantity = quantity;
     }
 
     // // Getters

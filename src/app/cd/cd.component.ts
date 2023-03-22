@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Cd } from '../../model/cd';
 
 @Component({
   selector: 'app-cd',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./cd.component.scss']
 })
 export class CdComponent {
+  @Input() Cd!: Cd;
 
+  addCd() {
+    this.Cd.quantity++;
+  }
 }
