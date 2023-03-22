@@ -46,4 +46,11 @@ export class CdsService {
                 }
             ];
         }
+    getCdById(id: number): Cd {
+        const CD = this.getAllCDs().find( cd => cd.id === id);
+        if (CD === undefined) {
+            throw new Error('CD non trouvé, id invalide ou inexistant');
+        }
+        return CD;
+    }
 }

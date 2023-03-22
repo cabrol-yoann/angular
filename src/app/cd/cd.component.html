@@ -1,13 +1,16 @@
-<div class="cd-card" [ngClass]="{'cdonsale': Cd.onsale === true}">
-    <h3>{{ Cd.title }}</h3>
-    <p>Sortie le : {{Cd.year | date : "dd/MM/yyyy"}}</p>
-    <p>Auteur / Groupe : {{ Cd.artist }}</p>
-    <p>Genre : {{ Cd.genre }}</p>
-    <p>Description : {{ Cd.description }}</p>
-    <p>Au prix de : {{ Cd.price | currency:"EUR"}}</p>
-    <img [src]="Cd.cover" [alt]="Cd.title">
+<div class="cd-card" [ngClass]="{'cdonsale': uncd.onsale === true}">
+    <h3>{{ uncd.title }}</h3>
+    <p>Sortie le : {{uncd.year | date : "dd/MM/yyyy"}}</p>
+    <p>Auteur / Groupe : {{ uncd.artist }}</p>
+    <p>Genre : {{ uncd.genre }}</p>
+    <p>Description : {{ uncd.description }}</p>
+    <p>Au prix de : {{ uncd.price | currency:"EUR"}}</p>
+    <img [src]="uncd.cover" [alt]="uncd.title">
     <p>
-        Disponible : <span [ngStyle]="{color: 'rgb(0,'+ Cd.quantity +',0)'}">{{ Cd.quantity }}</span>
+        Disponible : <span [ngStyle]="{color: 'rgb(0,'+ uncd.quantity +',0)'}">{{ uncd.quantity }}</span>
         <button (click)="addCd()">Ajouter une unité</button>
+    </p>
+    <p *ngIf="idcd===undefined">
+        <button routerLink="/cd/{{ uncd.id }}">Information</button>
     </p>
 </div>
