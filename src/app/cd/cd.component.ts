@@ -2,7 +2,6 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Cd } from '../../model/cd';
 import { CdsService } from '../service/cds.service';
 import { ActivatedRoute } from '@angular/router';
-import { Route } from '@angular/router';
 
 @Component({
   selector: 'app-cd',
@@ -16,12 +15,12 @@ export class CdComponent implements OnInit {
 
   uncd!: Cd;
   idcd!: string;
-  constructor(private cdService:CdsService, private router:ActivatedRoute) { }
+  constructor(private cdservice: CdsService, private router: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.idcd = this.router.snapshot.params["id"];
-    if (this.idcd !== undefined) {
-      this.uncd = this.cdService.getCdById(+this.idcd);
+    const id = this.router.snapshot.params["id"];
+    if (id !== undefined) {
+      this.cdservice.getCdById(+id).subscribe(cd => this.uncd = cd);
     }
     else {
       this.uncd = this.Cd;
@@ -29,6 +28,6 @@ export class CdComponent implements OnInit {
   }
 
   addCd() {
-    this.Cd.quantity++;
+    this.uncd.quantity++;
   }
 }

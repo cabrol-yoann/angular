@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Cd } from 'src/model/cd';
 import { CdsService } from '../service/cds.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-liste-de-cd',
@@ -8,13 +9,13 @@ import { CdsService } from '../service/cds.service';
   styleUrls: ['./liste-de-cd.component.scss']
 })
 export class ListeDeCdComponent implements OnInit {
-  listCd!: Cd[];
+  listCd$!: Observable<Cd[]>;
 
   constructor(private myCdService: CdsService) { }
   
   ngOnInit(): void {
   
-    this.listCd = this.myCdService.getAllCDs();
+    this.listCd$ = this.myCdService.getAllCDs();
       
   }
 }

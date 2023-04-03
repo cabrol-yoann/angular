@@ -1,0 +1,53 @@
+<div class="monForm">
+    <section class="subForm saisieForm">
+        <h2>Nouveau CD</h2>
+        <form [formGroup]="formulaire">
+            <div class="form-group">
+                <label for="title">Titre du CD</label>
+                <input type="text" class="form-control" id="title" placeholder="title" formControlName="title">
+            </div>
+            <div class="form-group">
+                <label for="artist">Artiste du CD</label>
+                <input type="text" class="form-control" id="artist" placeholder="artist" formControlName="artist">
+            </div>
+            <div class="form-group">
+                <label for="year">Date de sortie</label>
+                <input type="date" class="form-control" id="year" placeholder="year" formControlName="year">
+            </div>
+            <div class="form-group">
+                <label for="genre">Genre de musique</label>
+                <input type="text" class="form-control" id="genre" placeholder="genre" formControlName="genre">
+            </div>
+            <div class="form-group">
+                <label for="price">Prix</label>
+                <input type="number" class="form-control" id="price" placeholder="price" formControlName="price">
+            </div>
+            <div class="form-group">
+                <label for="cover">Image</label>
+                <input type="text" class="form-control" id="cover" placeholder="cover" formControlName="cover">
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <input type="text" class="form-control" id="description" placeholder="description" formControlName="description">
+            </div>
+            <div class="form-group">
+                <label for="quantity">Quantiter</label>
+                <input type="number" class="form-control" id="quantity" placeholder="quantity" formControlName="quantity">
+            </div>
+            <button type="submit" class="btn btn-primary" (click)="addCd()" [disabled]="formulaire.invalid">Ajouter le cd</button>
+        </form>
+    </section>
+    <section class="subForm">
+        <div *ngIf="currentCd$ | async as unCd">
+            <h2>Prévisualisation</h2>
+            <h3>{{ unCd.title }}</h3>
+            <p>Auteur / Groupe : {{ unCd.artist }}</p>
+            <p>Sortie le : {{unCd.year | date : "dd/MM/yyyy"}}</p>
+            <p>Genre : {{ unCd.genre }}</p>
+            <p>Au prix de : {{ unCd.price | currency:"EUR"}}</p>
+            <img [src]="unCd.cover" alt="Image de cd" style="width: 30%;">
+            <p>Description : {{ unCd.description }}</p>
+            <p>En stock : {{unCd.quantity }}</p>
+        </div>
+    </section>
+</div>

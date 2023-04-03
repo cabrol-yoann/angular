@@ -1,11 +1,11 @@
-<div class="cd-card" [ngClass]="{'cdonsale': uncd.onsale === true}">
+<div class="cd-card">
     <h3>{{ uncd.title }}</h3>
     <p>Sortie le : {{uncd.year | date : "dd/MM/yyyy"}}</p>
     <p>Auteur / Groupe : {{ uncd.artist }}</p>
     <p>Genre : {{ uncd.genre }}</p>
     <p>Description : {{ uncd.description }}</p>
     <p>Au prix de : {{ uncd.price | currency:"EUR"}}</p>
-    <img [src]="uncd.cover" [alt]="uncd.title">
+    <img [src]="uncd.cover" [alt]="uncd.title" style="width: 20%;">
     <p>
         Disponible : <span [ngStyle]="{color: 'rgb(0,'+ uncd.quantity +',0)'}">{{ uncd.quantity }}</span>
         <button (click)="addCd()">Ajouter une unité</button>
